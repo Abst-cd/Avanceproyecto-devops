@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Inicio $(date) " >> log.txt
+sudo apt update >> log.txt
+sudo apt install -y git >> log.txt
+echo "Fin $(date) " >> log.txt

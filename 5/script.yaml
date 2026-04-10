@@ -8,9 +8,9 @@ services:
     networks:
       - frontend-net
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html 
+      - ./index.html:/usr/share/nginx/html/index.html
 
-  db-mock: 
+  db-mock:
     image: redis:alpine
     networks:
       - backend-net

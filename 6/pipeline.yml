@@ -1,0 +1,27 @@
+name: CI-CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repo
+      uses: actions/checkout@v2
+
+    - name: Ver archivos (debug)
+      run: ls -la
+
+    - name: Construir imagen Docker
+      run: docker build -t app .
+
+    - name: Ejecutar contenedor
+      run: docker run -d -p 8080:80 app
+
+    - name: Probar servidor
+      run: |
+        sleep 5
+        curl http://localhost:8080

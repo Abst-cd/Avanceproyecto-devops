@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web-server:
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      - frontend-net
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html 
+
+  db-mock: 
+    image: redis:alpine
+    networks:
+      - backend-net
+
+networks:
+  frontend-net:
+    driver: bridge
+  backend-net:
+    driver: bridge
+    
